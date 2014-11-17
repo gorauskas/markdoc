@@ -7,25 +7,30 @@ from markdoc.config import Config
 
 def html_dir(config):
     return p.abspath(p.join(config['meta.root'],
-        config.get('html-dir', config['hide-prefix'] + 'html')))
+                            config.get('html-dir',
+                                       config['hide-prefix'] + 'html')))
 
 
 def static_dir(config):
-    return p.abspath(p.join(config['meta.root'], config.get('static-dir', 'static')))
+    return p.abspath(p.join(config['meta.root'],
+                            config.get('static-dir', 'static')))
 
 
 def wiki_dir(config):
-    return p.abspath(p.join(config['meta.root'], config.get('wiki-dir', 'wiki')))
+    return p.abspath(p.join(config['meta.root'],
+                            config.get('wiki-dir', 'wiki')))
 
 
 def temp_dir(config):
     return p.abspath(p.join(config['meta.root'],
-        config.get('temp-dir', config['hide-prefix'] + 'tmp')))
+                            config.get('temp-dir',
+                                       config['hide-prefix'] + 'tmp')))
 
 
 def template_dir(config):
     return p.abspath(p.join(config['meta.root'],
-        config.get('template-dir', config['hide-prefix'] + 'templates')))
+                            config.get('template-dir',
+                                       config['hide-prefix'] + 'templates')))
 
 
 Config.register_default('hide-prefix', '.')
@@ -35,7 +40,8 @@ Config.register_func_default('html-dir', lambda cfg, key: html_dir(cfg))
 Config.register_func_default('static-dir', lambda cfg, key: static_dir(cfg))
 Config.register_func_default('wiki-dir', lambda cfg, key: wiki_dir(cfg))
 Config.register_func_default('temp-dir', lambda cfg, key: temp_dir(cfg))
-Config.register_func_default('template-dir', lambda cfg, key: template_dir(cfg))
+Config.register_func_default('template-dir',
+                             lambda cfg, key: template_dir(cfg))
 
 Config.html_dir = property(html_dir)
 Config.static_dir = property(static_dir)

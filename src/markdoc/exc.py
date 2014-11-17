@@ -9,4 +9,3 @@ class MarkdocError(Exception):
 class AbortError(MarkdocError):
     """An exception occurred which should cause Markdoc to abort."""
     pass
-
